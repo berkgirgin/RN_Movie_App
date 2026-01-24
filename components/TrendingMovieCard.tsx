@@ -12,20 +12,48 @@ const TrendingMovieCard = ({
 }: TrendingMovie) => {
   const router = useRouter();
 
+  // calculate SCALE_DOWN_FINAL_COFACTOR
+  const index = trendingRank - 1;
+  const SCALE_COFACTOR = 0.02;
+  const SCALE_DOWN_FINAL_COFACTOR = 1 - SCALE_COFACTOR * index;
+
   return (
     <Pressable
-      style={styles.container}
+      style={[styles.container]}
       onPress={() => {
         //route to specific movie page
         router.push(`/movie/${movie_id}`);
       }}
     >
-      <View style={styles.trendingRankContainer}>
-        <Text style={styles.trendingRankText}>{trendingRank}</Text>
+      <View
+        style={[
+          styles.trendingRankContainer,
+          {
+            height: 50 * SCALE_DOWN_FINAL_COFACTOR,
+            width: 50 * SCALE_DOWN_FINAL_COFACTOR,
+          },
+        ]}
+      >
+        <Text
+          style={[
+            styles.trendingRankText,
+            {
+              fontSize: 20 * SCALE_DOWN_FINAL_COFACTOR,
+            },
+          ]}
+        >
+          {trendingRank}
+        </Text>
       </View>
 
       <Image
-        style={styles.image}
+        style={[
+          styles.image,
+          {
+            height: 250 * SCALE_DOWN_FINAL_COFACTOR,
+            width: `${100 * SCALE_DOWN_FINAL_COFACTOR}%`,
+          },
+        ]}
         source={{
           uri: poster_url
             ? poster_url
@@ -48,10 +76,8 @@ export default TrendingMovieCard;
 const styles = StyleSheet.create({
   container: {
     width: 128,
-
-    // borderColor: "white",
-    // borderWidth: 2,
     position: "relative",
+    justifyContent: "flex-end",
   },
   trendingRankContainer: {
     position: "absolute",
@@ -59,27 +85,27 @@ const styles = StyleSheet.create({
     left: 15,
     zIndex: 40,
 
-    height: 40,
-    width: 40,
+    // moved to inline for scale() calculations
+    // height: 50,
+    // width: 50,
     justifyContent: "center",
     alignItems: "center",
 
-    borderColor: colors.gold,
-    borderWidth: 2,
+    borderColor: colors.blackBackground,
+    borderWidth: 4,
     borderRadius: 999,
-    backgroundColor: colors.blackBackground,
+    backgroundColor: colors.zattooOrange,
   },
   trendingRankText: {
-    color: colors.gold,
-    fontSize: 20,
+    color: colors.blackBackground,
+    // moved to inline for scale() calculations
+    // fontSize: 20,
     fontWeight: 700,
-
-    // paddingHorizontal: 10,
-    // paddingVertical: 4,
   },
   image: {
-    height: 250,
-    width: "100%",
+    // moved to inline for scale() calculations
+    // height: 250,
+    // width: "100%",
     borderRadius: 8,
   },
   detailsContainer: {

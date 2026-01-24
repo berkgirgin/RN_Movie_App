@@ -80,11 +80,7 @@ export default function Index() {
           showsHorizontalScrollIndicator={false}
           style={styles.trendingFlatlist}
           renderItem={({ item, index }) => {
-            return (
-              <View>
-                <TrendingMovieCard {...item} trendingRank={index + 1} />
-              </View>
-            );
+            return <TrendingMovieCard {...item} trendingRank={index + 1} />;
           }}
           keyExtractor={(item) => item.$id.toString()}
           ItemSeparatorComponent={() => <View style={{ width: 20 }} />}
@@ -107,6 +103,7 @@ export default function Index() {
   function MoviesFlatlistComponent() {
     return (
       <FlatList
+        scrollEnabled={false}
         data={movies}
         // style={styles.trendingFlatlist}
         renderItem={({ item }) => {
@@ -142,7 +139,7 @@ export default function Index() {
   return (
     <SafeAreaView edges={["top"]} style={styles.container}>
       <SearchBar
-        placeholder="Press(on Mobile) to Search..."
+        placeholder="Redirect(on Mobile) to Search Page..."
         onPress={() => {
           router.push("/search");
         }}
@@ -154,10 +151,12 @@ export default function Index() {
         }}
       /> */}
 
-      {/* only render if trendingMovies exists*/}
-      {trendingMovies && <TrendingMoviesFlatlistComponent />}
+      <ScrollView>
+        {/* only render if trendingMovies exists*/}
+        {trendingMovies && <TrendingMoviesFlatlistComponent />}
 
-      <MoviesFlatlistComponent />
+        <MoviesFlatlistComponent />
+      </ScrollView>
     </SafeAreaView>
   );
 }

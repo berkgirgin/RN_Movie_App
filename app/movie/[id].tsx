@@ -34,12 +34,12 @@ const movieInfoStyles = StyleSheet.create({
     alignItems: "flex-start",
   },
   label: {
-    // color: "#9CA3AF",
+    color: colors.lightgreyDetailsText,
     fontSize: 14,
     fontWeight: "400",
   },
   value: {
-    // color: "#E5E7EB",
+    color: colors.whiteText,
     fontSize: 14,
     fontWeight: "700",
     // marginTop: 8,
@@ -59,15 +59,15 @@ export default function MovieDetails() {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.safeArea}>
+      <SafeAreaView style={styles.container}>
         <ActivityIndicator size={"large"} />
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.posterContainer}>
           <Image
             source={{
@@ -86,10 +86,10 @@ export default function MovieDetails() {
 
           {/* Release + Runtime */}
           <View style={styles.metaRow}>
-            <Text style={styles.metaText}>
-              {movie?.release_date?.split("-")[0]} •
+            <Text style={styles.metaReleaseDate}>
+              {movie?.release_date?.split("-")[0]}
             </Text>
-            <Text style={styles.metaText}>{movie?.runtime}m</Text>
+            <Text style={styles.metaRuntime}>{movie?.runtime}m</Text>
           </View>
 
           {/* Rating */}
@@ -133,56 +133,74 @@ export default function MovieDetails() {
 
       {/* Go Back */}
       <Pressable style={styles.backButton} onPress={router.back}>
-        <Image source={icons.arrow} tintColor="black" style={styles.backIcon} />
+        <Image
+          source={icons.arrow}
+          tintColor={colors.blackHighlightBackground}
+          style={styles.backIcon}
+        />
         <Text style={styles.backText}>Go Back</Text>
       </Pressable>
     </SafeAreaView>
   );
 }
 
-const contentPadding = 20;
+const CONTENT_PADDING = 20;
+
 const styles = StyleSheet.create({
-  safeArea: {
+  container: {
     flex: 1,
-    backgroundColor: "lightblue",
+    backgroundColor: colors.blackBackground,
     justifyContent: "center",
   },
   posterContainer: {
-    backgroundColor: "brown",
+    // backgroundColor: "brown",
   },
   posterImage: {
     height: 550,
     width: "100%",
   },
 
-  scrollView: {},
+  scrollView: {
+    // paddingBottom needs contentContainerStyle
+    // it is is outside the scrollable content so direct styling doesn't work
+    paddingBottom: 80,
 
-  playButton: {},
-  playIcon: {},
+    // backgroundColor: "pink",
+    // borderWidth: 5,
+    // borderColor: "orange",
+  },
+
   contentContainer: {
-    // alignItems: "flex-start",
+    alignItems: "flex-start",
     marginTop: 20,
-    paddingHorizontal: contentPadding,
+    paddingHorizontal: CONTENT_PADDING,
     gap: 10,
   },
   title: {
     fontSize: 20,
     fontWeight: "700",
+    color: colors.whiteText,
   },
   metaRow: {
     flexDirection: "row",
-    backgroundColor: "brown",
+    // backgroundColor: "brown",
     alignItems: "center",
   },
-  metaText: {
+  metaReleaseDate: {
+    color: colors.whiteText,
     fontSize: 14,
+  },
+  metaRuntime: {
+    color: colors.whiteText,
+    fontSize: 14,
+    marginLeft: 8,
   },
 
   //raiting
   // ***
   ratingContainer: {
     flexDirection: "row",
-    backgroundColor: "brown",
+    backgroundColor: colors.blackHighlightBackground,
     alignItems: "center",
 
     paddingHorizontal: 8,
@@ -193,13 +211,19 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
   },
-  ratingValue: {},
-  ratingCount: {},
+  ratingValue: {
+    color: colors.whiteText,
+    fontSize: 14,
+  },
+  ratingCount: {
+    color: colors.lightgreyDetailsText,
+    fontSize: 14,
+    marginLeft: 4,
+  },
   // ***
 
   moneyRow: {
     width: "50%",
-    backgroundColor: "brown",
     flexDirection: "row",
     justifyContent: "space-between",
   },
@@ -209,8 +233,8 @@ const styles = StyleSheet.create({
   backButton: {
     position: "absolute",
     bottom: 20,
-    left: contentPadding,
-    right: contentPadding,
+    left: CONTENT_PADDING,
+    right: CONTENT_PADDING,
     backgroundColor: colors.zattooOrange,
     borderRadius: 8,
     paddingVertical: 14,
@@ -226,7 +250,7 @@ const styles = StyleSheet.create({
     transform: [{ rotate: "180deg" }],
   },
   backText: {
-    color: "#FFFFFF",
+    color: colors.blackHighlightBackground,
     fontSize: 16,
     fontWeight: "600",
   },
