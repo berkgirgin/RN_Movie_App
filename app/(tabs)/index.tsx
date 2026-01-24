@@ -72,7 +72,12 @@ export default function Index() {
   function TrendingMoviesFlatlistComponent() {
     return (
       <View style={styles.trendingSectionContainer}>
-        <Text style={styles.trendingSectionTitle}>Trending Movies</Text>
+        <Text style={styles.trendingSectionTitle}>
+          Trending Movies{" "}
+          <Text style={styles.trendingSectionTitleNote}>
+            (tracks your searches actively)
+          </Text>
+        </Text>
 
         <FlatList
           horizontal
@@ -176,6 +181,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: colors.brightWhiteText,
     marginBottom: 12,
+  },
+  trendingSectionTitleNote: {
+    fontSize: 14,
+    fontWeight: "500",
+    color: colors.lightgreyDetailsText,
   },
 
   trendingFlatlist: {

@@ -1,16 +1,44 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
+import { icons } from "@/constants/icons";
 import { colors } from "@/constants/colors";
 
-const Saved = () => {
+const Save = () => {
   return (
-    <View>
-      <Text>Saved</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
+        <Image
+          source={icons.save}
+          style={styles.icon}
+          tintColor={colors.whiteText}
+        />
+        <Text style={styles.text}>Save</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
-export default Saved;
+export default Save;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.blackBackground,
+    paddingHorizontal: 40, // px-10
+  },
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    width: 40, // size-10
+    height: 40,
+    marginBottom: 20, // gap-5
+  },
+  text: {
+    fontSize: 16, // text-base
+    color: colors.darkgreyDetailsText,
+  },
+});

@@ -14,7 +14,7 @@ const TrendingMovieCard = ({
 
   // calculate SCALE_DOWN_FINAL_COFACTOR
   const index = trendingRank - 1;
-  const SCALE_COFACTOR = 0.02;
+  const SCALE_COFACTOR = 0.03;
   const SCALE_DOWN_FINAL_COFACTOR = 1 - SCALE_COFACTOR * index;
 
   return (

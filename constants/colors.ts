@@ -6,6 +6,8 @@ export const colors = {
   lightgreyDetailsText: "#bdbdbd",
 
   blackBackground: "#1a1a1a",
+  darkBlue: "#0F0D23",
+
   blackHighlightBackground: "#232323",
   blackBorderColor: "black",
   zattooOrange: "#ff6002",
