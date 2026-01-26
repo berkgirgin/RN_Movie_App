@@ -26,7 +26,7 @@ const MovieCard = ({
       onPress={async () => {
         //route to specific movie page
         router.push(`/movie/${id}`);
-        // await onClick();
+        await onClick();
       }}
     >
       <Image

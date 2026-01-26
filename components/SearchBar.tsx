@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 16,
     marginBottom: 18,
+
+    marginTop: 18,
   },
   image: {
     width: 20,

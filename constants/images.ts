@@ -5,8 +5,6 @@ import noResultFound from "@/assets/images/noResultFound.png";
 import startSearching from "@/assets/images/startSearching.png";
 
 export const images = {
-  bg,
-  highlight,
   rankingGradient,
   noResultFound,
   startSearching,
