@@ -1,50 +1,86 @@
-# Welcome to your Expo app 👋
+# React Native Expo - Movie App 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Built with Expo and TypeScript, this app fetches movies and creates a popularity algorithm using Appwrite. It provides users with a seamless browsing experience, ranking movies based on various engagement metrics.
+
+💻 **Try the app in your browser:** [Live Demo](https://movie-app-berk.netlify.app)
+
+## Features
+
+- **Cross platform mobile app**: supports both ios and android(backend supports ios only)
+- **Real-time data**: Fetching and displaying real-time movie data
+- **Home Page**: Featured and discover movies
+- **Search Page**: Search for your favorite movies
+- **Popularity algorithm**: Track user searches to display the most popular movies
+
+## Screenshots
+
+<!-- ![Preview](@/assets/screenshots/sc1.png) -->
+
+<div style="display: flex; gap: 10px;">
+
+  <img src="./assets/screenshots/sc1.png" alt="Screenshot 1" width="200"/>
+  <img src="./assets/screenshots/sc2.png" alt="Screenshot 2" width="200"/>
+  <img src="./assets/screenshots/sc3.png" alt="Screenshot 3" width="200"/>
+
+</div>
 
 ## Get started
 
-1. Install dependencies
+### Prerequisites 🛠️
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+
+- [Node.js](https://nodejs.org/en)
+
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+### Installation 📦
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/berkgirgin/RN_Movie_App.git
+   ```
+
+2. **Change into the project directory:**
+
+   ```bash
+   cd basic_RN_Movie_App
+   ```
+
+3. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+4. **Set Up Environment Variables**
 
-   ```bash
-   npx expo start
+   Create a new file named `.env` in the root of your project and add the following content:
+
+   ```env
+
+   EXPO_PUBLIC_MOVIE_API_KEY=
+
+   EXPO_PUBLIC_APPWRITE_PROJECT_ID=
+
+   EXPO_PUBLIC_APPWRITE_DATABASE_ID=
+
+   EXPO_PUBLIC_APPWRITE_COLLECTION_ID=
    ```
 
-In the output, you'll find options to open the app in a
+   Replace the placeholder values with your actual TMDB API key, Appwrite project ID, Database ID, and Collection ID. You can obtain these credentials by signing up on the [Appwrite](https://jsm.dev/rn25-appwrite), [TMDB](https://www.themoviedb.org/login).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Running the App(in Expo) ▶️
 
 ```bash
-npm run reset-project
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+In the output, you'll find options to open the app in:
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Press a │ open Android
+- Press i │ open iOS simulator
+- Press w │ open web
